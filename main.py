@@ -4,7 +4,7 @@ import math
 import sys
 
 Blue = (0, 11, 235)
-
+Black = (1, 2, 3)
 
 Row_Count = 6
 Column_Count = 7
@@ -62,6 +62,8 @@ def draw_board(board):
         for r in range(Row_Count):
             pygame.draw.rect(screen, Blue, (c*SquareSize, r *
                              SquareSize+SquareSize, SquareSize, SquareSize))
+            pygame.draw.circle(screen, Black, (int(
+                c*SquareSize+SquareSize/2), int(r*SquareSize+SquareSize+SquareSize/2)), radius)
 
 
 board = create_board()
@@ -77,6 +79,7 @@ width = Column_Count * SquareSize
 height = (Row_Count+1) * SquareSize
 
 size = (width, height)
+radius = int(SquareSize/2 - 5)
 
 screen = pygame.display.set_mode(size)
 draw_board(board)
