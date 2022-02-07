@@ -81,6 +81,9 @@ while not game_over:
             if winning_move(board, 2):
                 print("Player 2 wins!!! Yaaaaay!!!")
                 game_over = True
+                break
+
+    print_board(board)
 
     turn += 1
     turn = turn % 2
