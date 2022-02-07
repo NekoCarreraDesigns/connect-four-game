@@ -28,7 +28,12 @@ def get_next_open_row():
             return r
 
 
+def print_board(board):
+    print(np.flip(board, 0))
+
+
 board = create_board()
+print_board(board)
 game_over = False
 turn = 0
 
