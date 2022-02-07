@@ -23,6 +23,9 @@ def is_valid_location(board, col):
 
 
 def get_next_open_row():
+    for r in range(Row_Count):
+        if board[r][col] == 0:
+            return r
 
 
 board = create_board()
