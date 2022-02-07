@@ -25,7 +25,7 @@ def is_valid_location(board, col):
     return board[Row_Count-1][col] == 0
 
 
-def get_next_open_row():
+def get_next_open_row(board, col):
     for r in range(Row_Count):
         if board[r][col] == 0:
             return r
@@ -91,30 +91,31 @@ while not game_over:
             sys.exit()
 
         if event.type == pygame.MOUSEBUTTONDOWN:
-            continue
 
-    if turn == 0:
-        col = int(input('Player 1 make your move (0-6)'))
+            if turn == 0:
+                posx = event.pos[0]
+                col = int(math.floor(posx/SquareSize))
 
-        if is_valid_location(board, col):
-            row = get_next_open_row(board, col)
-            drop_piece(board, row, col, 1)
+                if is_valid_location(board, col):
+                    row = get_next_open_row(board, col)
+                    drop_piece(board, row, col, 1)
 
-            if winning_move(board, 1):
-                print("Player 1 wins!!! Yaaaaay!!!")
-                game_over = True
+                    if winning_move(board, 1):
+                        print("Player 1 wins!!! Yaaaaay!!!")
+                        game_over = True
 
-    else:
-        col = int(input("Player 2 make your move (0-6)"))
+                else:
+                    posx = event.pos[0]
+                    col = int(math.floor(posx/SquareSize))
 
-        if is_valid_location(board, col):
-            row = get_next_open_row(board, col)
-            drop_piece(board, row, col, 2)
+                    if is_valid_location(board, col):
+                        row = get_next_open_row(board, col)
+                        drop_piece(board, row, col, 2)
 
-            if winning_move(board, 2):
-                print("Player 2 wins!!! Yaaaaay!!!")
-                game_over = True
-                break
+                        if winning_move(board, 2):
+                            print("Player 2 wins!!! Yaaaaay!!!")
+                            game_over = True
+                            break
 
     print_board(board)
 
