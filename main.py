@@ -14,8 +14,8 @@ def create_board():
     return board
 
 
-def drop_piece():
-    pass
+def drop_piece(board, row, col, piece):
+    board[row][col] = piece
 
 
 def is_valid_location(board, col):
@@ -36,8 +36,16 @@ while not game_over:
     if turn == 0:
         col = int(input('Player 1 make your move (0-6)'))
 
+        if is_valid_location(board, col):
+            row = get_next_open_row(board, col)
+            drop_piece(board, row, col, 1)
+
     else:
         col = int(input("Player 2 make your move (0-6)"))
+
+        if is_valid_location(board, col):
+            row = get_next_open_row(board, col)
+            drop_piece(board, row, col, 2)
 
     turn += 1
     turn = turn % 2
