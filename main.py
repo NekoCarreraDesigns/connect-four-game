@@ -18,12 +18,11 @@ def drop_piece():
     pass
 
 
-def is_valid_location():
-    pass
+def is_valid_location(board, col):
+    return board[5][col] == 0
 
 
 def get_next_open_row():
-    pass
 
 
 board = create_board()
