@@ -3,6 +3,9 @@ import pygame
 import math
 import sys
 
+Blue = (0, 11, 235)
+
+
 Row_Count = 6
 Column_Count = 7
 Even = 0
@@ -54,12 +57,39 @@ def winning_move(board, piece):
                 return True
 
 
+def draw_board(board):
+    for c in range(Column_Count):
+        for r in range(Row_Count):
+            pygame.draw.rect(screen, Blue, (c*SquareSize, r *
+                             SquareSize+SquareSize, SquareSize, SquareSize))
+
+
 board = create_board()
 print_board(board)
 game_over = False
 turn = 0
 
+pygame.init()
+
+SquareSize = 100
+
+width = Column_Count * SquareSize
+height = (Row_Count+1) * SquareSize
+
+size = (width, height)
+
+screen = pygame.display.set_mode(size)
+draw_board(board)
+pygame.display.update()
+
 while not game_over:
+    for event in pygame.event.get():
+        if event.type == pygame.QUIT:
+            sys.exit()
+
+        if event.type == pygame.MOUSEBUTTONDOWN:
+            continue
+
     if turn == 0:
         col = int(input('Player 1 make your move (0-6)'))
 
