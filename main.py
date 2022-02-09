@@ -53,7 +53,7 @@ def winning_move(board, piece):
 
     for c in range(Column_Count):
         for r in range(3, Row_Count):
-            if board[r][c] == piece and board[r-1][c] == piece and board[r-2][c] == piece and board[r-3][c] == piece:
+            if board[r][c] == piece and board[r-1][c+1] == piece and board[r-2][c+2] == piece and board[r-3][c+3] == piece:
                 return True
 
 
