@@ -18,7 +18,7 @@ Connect Four game built using Python
 
 ## Installation
 
-` Fork local repo, download Python if you do not have it already, build the file inyour editor, if using vscode hit the play button in the top right, start playing `
+`Fork local repo, download Python if you do not have it already, build the file in your editor, if using vscode hit the play button in the top right, start playing`
 
 ## Usage
 
