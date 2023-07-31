@@ -11,6 +11,10 @@ Yellow = (255, 255, 0)
 Row_Count = 6
 Column_Count = 7
 
+pygame.display.set_caption("Connect Four")
+captionImg = pygame.image.load("noun-connect-four-5132387.png")
+pygame.display.set_icon(captionImg)
+
 
 def create_board():
     board = np.zeros((Row_Count, Column_Count))
